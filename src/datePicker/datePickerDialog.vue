@@ -113,7 +113,8 @@ export default {
         initialDate: this.initialDate,
         maxDate: this.maxDate,
         minDate: this.minDate,
-        mode: this.mode
+        mode: this.mode,
+        shouldShowYearFirst: this.shouldShowYearFirst
       },
       on: {
         accept: this.handleAccept,
