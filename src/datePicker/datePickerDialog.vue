@@ -52,6 +52,12 @@ export default {
     },
     shouldDisableDate: {
       type: Function
+    },
+    shouldShowYearFirst: { 
+      type: Boolean,
+      default() { 
+        return false
+      }
     }
   },
   data () {
