@@ -5,7 +5,7 @@
     :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
     :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass" :inputClass="inputClass"
     :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
-  <date-picker-dialog v-if="!disabled" @monthChange="handleMonthChange" @yearChange="handleYearChange" @accept="handleAccept" @dismiss="dismiss" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel"/>
+  <date-picker-dialog v-if="!disabled" @monthChange="handleMonthChange" @yearChange="handleYearChange" @accept="handleAccept" @dismiss="dismiss" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel" :shouldShowYearFirst="showYearFirst"/>
 </div>
 </template>
 <script>
@@ -132,6 +132,12 @@ export default {
       type: Date,
       default() { 
         return new Date()
+      }
+    },
+    showYearFirst: { 
+      type: Boolean,
+      default() { 
+        return false
       }
     }
   },
