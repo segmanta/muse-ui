@@ -141,7 +141,8 @@ export default {
         props: {
           trigger: this.trigger,
           overlay: false,
-          open: this.open
+          open: this.open,
+          shouldShowYearFirst: this.shouldShowYearFirst
         },
         on: {
           close: this.handleClose,
