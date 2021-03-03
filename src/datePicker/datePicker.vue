@@ -127,6 +127,12 @@ export default {
     },
     value: {
       type: String
+    },
+    initialDate: { 
+      type: Date,
+      default() { 
+        return new Date()
+      }
     }
   },
   computed: {
@@ -157,7 +163,11 @@ export default {
     },
     openDialog () {
       if (this.disabled) return
-      this.dialogDate = this.inputValue ? dateUtils.strFormatToDate(this.inputValue, this.format) : new Date()
+      if(this.initialDate && !this.inputValue) { 
+        this.dialogDate = this.initialDate
+      } else { 
+        this.dialogDate = this.inputValue ? dateUtils.strFormatToDate(this.inputValue, this.format) : new Date()
+      }
       this.$refs.dialog.open = true
     },
     handleAccept (val) {
