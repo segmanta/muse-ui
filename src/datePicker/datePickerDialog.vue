@@ -1,5 +1,5 @@
 <script>
-import {dateTimeFormat} from './dateUtils'
+import { dateTimeFormat } from './dateUtils'
 import popover from '../popover'
 import dialog from '../dialog'
 import calendar from './calendar'
@@ -7,155 +7,173 @@ export default {
   props: {
     dateTimeFormat: {
       type: Object,
-      default: dateTimeFormat
+      default: dateTimeFormat,
     },
     autoOk: {
-      type: Boolean
+      type: Boolean,
     },
     cancelLabel: {
-      type: String
+      type: String,
     },
     okLabel: {
-      type: String
+      type: String,
     },
     container: {
       type: String,
       default: 'dialog',
-      validator (val) {
+      validator(val) {
         return val && ['dialog', 'inline'].indexOf(val) !== -1
-      }
+      },
     },
     disableYearSelection: {
-      type: Boolean
+      type: Boolean,
     },
     firstDayOfWeek: {
-      type: Number
+      type: Number,
     },
     initialDate: {
       type: Date,
-      default () {
+      default() {
         return new Date()
-      }
+      },
     },
     maxDate: {
-      type: Date
+      type: Date,
     },
     minDate: {
-      type: Date
+      type: Date,
     },
     mode: {
       type: String,
       default: 'portrait',
-      validator (val) {
+      validator(val) {
         return val && ['portrait', 'landscape'].indexOf(val) !== -1
-      }
+      },
     },
     shouldDisableDate: {
-      type: Function
+      type: Function,
     },
-    shouldShowYearFirst: { 
+    shouldShowYearFirst: {
       type: Boolean,
-      default: false
-    }
+      default() {
+        return false
+      },
+    },
   },
-  data () {
+  data() {
     return {
       open: false,
       showCalendar: false,
-      trigger: null
+      trigger: null,
     }
   },
-  mounted () {
+  mounted() {
     this.trigger = this.$el
   },
   methods: {
-    handleAccept (date) {
+    handleAccept(date) {
       this.$emit('accept', date)
       this.open = false
     },
-    handleDismiss () {
+    handleDismiss() {
       this.dismiss()
     },
-    handleClose (reson) {
+    handleClose(reson) {
       this.dismiss()
     },
-    dismiss () {
+    dismiss() {
       this.open = false
       this.$emit('dismiss')
     },
-    handleMonthChange (date) {
+    handleMonthChange(date) {
       this.$emit('monthChange', date)
     },
-    handleYearChange (date) {
+    handleYearChange(date) {
       this.$emit('yearChange', date)
     },
-    hideCanlendar () {
+    hideCanlendar() {
       this.showCalendar = false
-    }
+    },
   },
   watch: {
-    open (val) {
+    open(val) {
       if (val) this.showCalendar = true
-    }
+    },
   },
-  render (h) {
-    const Calendar = this.showCalendar ? h(calendar, {
-      props: {
-        autoOk: this.autoOk,
-        dateTimeFormat: this.dateTimeFormat,
-        okLabel: this.okLabel,
-        cancelLabel: this.cancelLabel,
-        disableYearSelection: this.disableYearSelection,
-        shouldDisableDate: this.shouldDisableDate,
-        firstDayOfWeek: this.firstDayOfWeek,
-        initialDate: this.initialDate,
-        maxDate: this.maxDate,
-        minDate: this.minDate,
-        mode: this.mode,
-        shouldShowYearFirst: this.shouldShowYearFirst
+  render(h) {
+    const Calendar = this.showCalendar
+      ? h(calendar, {
+          props: {
+            autoOk: this.autoOk,
+            dateTimeFormat: this.dateTimeFormat,
+            okLabel: this.okLabel,
+            cancelLabel: this.cancelLabel,
+            disableYearSelection: this.disableYearSelection,
+            shouldDisableDate: this.shouldDisableDate,
+            firstDayOfWeek: this.firstDayOfWeek,
+            initialDate: this.initialDate,
+            maxDate: this.maxDate,
+            minDate: this.minDate,
+            mode: this.mode,
+            shouldShowYearFirst: this.shouldShowYearFirst,
+          },
+          on: {
+            accept: this.handleAccept,
+            dismiss: this.handleDismiss,
+            monthChange: this.handleMonthChange,
+            yearChange: this.handleYearChange,
+          },
+        })
+      : ''
+    return h(
+      'div',
+      {
+        style: {
+          // 'margin-top': '-28px'
+        },
       },
-      on: {
-        accept: this.handleAccept,
-        dismiss: this.handleDismiss,
-        monthChange: this.handleMonthChange,
-        yearChange: this.handleYearChange
-      }
-    }) : ''
-    return h('div', {
-      style: {
-        // 'margin-top': '-28px'
-      }
-    }, [
-      this.container === 'dialog' ? h(dialog, {
-        props: {
-          open: this.open,
-          dialogClass: ['mu-date-picker-dialog', this.mode]
-        },
-        on: {
-          close: this.handleClose,
-          hide: this.hideCanlendar
-        }
-      }, [Calendar]) : h(popover, {
-        props: {
-          trigger: this.trigger,
-          overlay: false,
-          open: this.open,
-          shouldShowYearFirst: this.shouldShowYearFirst
-        },
-        on: {
-          close: this.handleClose,
-          hide: this.hideCanlendar
-        }
-      }, [Calendar])
-    ])
-  }
+      [
+        this.container === 'dialog'
+          ? h(
+              dialog,
+              {
+                props: {
+                  open: this.open,
+                  dialogClass: ['mu-date-picker-dialog', this.mode],
+                },
+                on: {
+                  close: this.handleClose,
+                  hide: this.hideCanlendar,
+                },
+              },
+              [Calendar],
+            )
+          : h(
+              popover,
+              {
+                props: {
+                  trigger: this.trigger,
+                  overlay: false,
+                  open: this.open,
+                  shouldShowYearFirst: this.shouldShowYearFirst,
+                },
+                on: {
+                  close: this.handleClose,
+                  hide: this.hideCanlendar,
+                },
+              },
+              [Calendar],
+            ),
+      ],
+    )
+  },
 }
 </script>
 
 <style lang="less">
-@import "../styles/import.less";
+@import '../styles/import.less';
 .mu-date-picker-dialog {
-   width: 310px;
+  width: 310px;
   &.landscape {
     width: 479px;
     .mu-dialog-body {

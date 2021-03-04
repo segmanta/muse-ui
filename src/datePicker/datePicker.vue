@@ -1,12 +1,50 @@
 <template>
-<div class="mu-date-picker" :class="{'fullWidth': fullWidth}">
-  <text-field @focus="handleFocus" @labelClick="handleClick" :value="inputValue" :disabled="disabled" :fullWidth="fullWidth"
-    :label="label" :labelFloat="labelFloat" :labelClass="labelClass" :labelFocusClass="labelFocusClass"
-    :hintText="hintText" :hintTextClass="hintTextClass" :helpText="helpText" :helpTextClass="helpTextClass"
-    :errorText="errorText" :errorColor="errorColor" :icon="icon" :iconClass="iconClass" :inputClass="inputClass"
-    :underlineShow="underlineShow" :underlineClass="underlineClass" :underlineFocusClass="underlineFocusClass"/>
-  <date-picker-dialog v-if="!disabled" @monthChange="handleMonthChange" @yearChange="handleYearChange" @accept="handleAccept" @dismiss="dismiss" :initialDate="dialogDate" ref="dialog" :mode="mode" :maxDate="maxLimitDate" :minDate="minLimitDate" :shouldDisableDate="shouldDisableDate" :firstDayOfWeek="firstDayOfWeek" :container="container" :disableYearSelection="disableYearSelection" :dateTimeFormat="dateTimeFormat" :autoOk="autoOk" :okLabel="okLabel" :cancelLabel="cancelLabel" :shouldShowYearFirst="shouldShowYearFirst" />
-</div>
+  <div class="mu-date-picker" :class="{ fullWidth: fullWidth }">
+    <text-field
+      @focus="handleFocus"
+      @labelClick="handleClick"
+      :value="inputValue"
+      :disabled="disabled"
+      :fullWidth="fullWidth"
+      :label="label"
+      :labelFloat="labelFloat"
+      :labelClass="labelClass"
+      :labelFocusClass="labelFocusClass"
+      :hintText="hintText"
+      :hintTextClass="hintTextClass"
+      :helpText="helpText"
+      :helpTextClass="helpTextClass"
+      :errorText="errorText"
+      :errorColor="errorColor"
+      :icon="icon"
+      :iconClass="iconClass"
+      :inputClass="inputClass"
+      :underlineShow="underlineShow"
+      :underlineClass="underlineClass"
+      :underlineFocusClass="underlineFocusClass"
+    />
+    <date-picker-dialog
+      v-if="!disabled"
+      @monthChange="handleMonthChange"
+      @yearChange="handleYearChange"
+      @accept="handleAccept"
+      @dismiss="dismiss"
+      :initialDate="dialogDate"
+      ref="dialog"
+      :mode="mode"
+      :maxDate="maxLimitDate"
+      :minDate="minLimitDate"
+      :shouldDisableDate="shouldDisableDate"
+      :firstDayOfWeek="firstDayOfWeek"
+      :container="container"
+      :disableYearSelection="disableYearSelection"
+      :dateTimeFormat="dateTimeFormat"
+      :autoOk="autoOk"
+      :okLabel="okLabel"
+      :cancelLabel="cancelLabel"
+      :shouldShowYearFirst="shouldShowYearFirst"
+    />
+  </div>
 </template>
 <script>
 import * as dateUtils from './dateUtils'
@@ -17,164 +55,172 @@ export default {
   props: {
     dateTimeFormat: {
       type: Object,
-      default () {
+      default() {
         return dateUtils.dateTimeFormat
-      }
+      },
     },
     autoOk: {
       type: Boolean,
-      default: false
+      default: false,
     },
     cancelLabel: {
-      type: String
+      type: String,
     },
     okLabel: {
-      type: String
+      type: String,
     },
     container: {
       type: String,
       default: 'dialog',
-      validator (val) {
+      validator(val) {
         return val && ['dialog', 'inline'].indexOf(val) !== -1
-      }
+      },
     },
     disableYearSelection: {
-      type: Boolean
+      type: Boolean,
     },
     firstDayOfWeek: {
-      type: Number
+      type: Number,
     },
     mode: {
       type: String,
       default: 'portrait',
-      validator (val) {
+      validator(val) {
         return val && ['portrait', 'landscape'].indexOf(val) !== -1
-      }
+      },
     },
     shouldDisableDate: {
-      type: Function
+      type: Function,
     },
     format: {
       type: String,
-      default: 'YYYY-MM-DD'
+      default: 'YYYY-MM-DD',
     },
     maxDate: {
-      type: [String, Date]
+      type: [String, Date],
     },
     minDate: {
-      type: [String, Date]
+      type: [String, Date],
     },
     name: {
-      type: String
+      type: String,
     },
     label: {
-      type: String
+      type: String,
     },
     labelFloat: {
       type: Boolean,
-      default: false
+      default: false,
     },
     labelClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     labelFocusClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
     },
     hintText: {
-      type: String
+      type: String,
     },
     hintTextClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     helpText: {
-      type: String
+      type: String,
     },
     helpTextClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     errorText: {
-      type: String
+      type: String,
     },
     errorColor: {
-      type: String
+      type: String,
     },
     icon: {
-      type: String
+      type: String,
     },
     iconClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     inputClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     fullWidth: {
       type: Boolean,
-      default: false
+      default: false,
     },
     underlineShow: {
       type: Boolean,
-      default: true
+      default: true,
     },
     underlineClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     underlineFocusClass: {
-      type: [String, Array, Object]
+      type: [String, Array, Object],
     },
     value: {
-      type: String
+      type: String,
     },
-    initialDate: { 
+    initialDate: {
       type: Date,
-      default() { 
+      default() {
         return new Date()
-      }
+      },
     },
-    shouldShowYearFirst: { 
+    shouldShowYearFirst: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
-    maxLimitDate () {
-      return this.maxDate ? typeof this.maxDate === 'string' ? dateUtils.strFormatToDate(this.maxDate, this.format) : this.maxDate : undefined
+    maxLimitDate() {
+      return this.maxDate
+        ? typeof this.maxDate === 'string'
+          ? dateUtils.strFormatToDate(this.maxDate, this.format)
+          : this.maxDate
+        : undefined
     },
-    minLimitDate () {
-      return this.minDate ? typeof this.minDate === 'string' ? dateUtils.strFormatToDate(this.minDate, this.format) : this.minDate : undefined
-    }
+    minLimitDate() {
+      return this.minDate
+        ? typeof this.minDate === 'string'
+          ? dateUtils.strFormatToDate(this.minDate, this.format)
+          : this.minDate
+        : undefined
+    },
   },
-  data () {
+  data() {
     return {
       inputValue: this.value,
-      dialogDate: null
+      dialogDate: null,
     }
   },
   methods: {
-    handleClick () {
+    handleClick() {
       if (!this.disabled) {
         setTimeout(() => {
           this.openDialog()
         }, 0)
       }
     },
-    handleFocus (event) {
+    handleFocus(event) {
       event.target.blur()
       this.$emit('focus', event)
     },
-    openDialog () {
+    openDialog() {
       if (this.disabled) return
-      if(this.initialDate && !this.inputValue) { 
+      if (this.initialDate && !this.inputValue) {
         this.dialogDate = this.initialDate
-      } else { 
+      } else {
         this.dialogDate = this.inputValue ? dateUtils.strFormatToDate(this.inputValue, this.format) : new Date()
       }
       this.$refs.dialog.open = true
     },
-    handleAccept (val) {
+    handleAccept(val) {
       const newValue = dateUtils.dateToStr(val, this.format)
       if (this.inputValue === newValue) {
         this.$emit('change', newValue)
@@ -183,39 +229,39 @@ export default {
       this.inputValue = newValue
       this.$emit('change', newValue)
     },
-    dismiss () {
+    dismiss() {
       this.$emit('dismiss')
     },
-    handleMonthChange (date) {
+    handleMonthChange(date) {
       this.$emit('monthChange', date)
     },
-    handleYearChange (date) {
+    handleYearChange(date) {
       this.$emit('yearChange', date)
-    }
+    },
   },
   watch: {
-    value (val) {
+    value(val) {
       this.inputValue = val
     },
-    inputValue (val) {
+    inputValue(val) {
       this.$emit('input', val)
-    }
+    },
   },
   components: {
     'text-field': textField,
-    'date-picker-dialog': datePickerDialog
-  }
+    'date-picker-dialog': datePickerDialog,
+  },
 }
 </script>
 
 <style lang="less">
-@import "../styles/import.less";
-.mu-date-picker{
+@import '../styles/import.less';
+.mu-date-picker {
   display: inline-block;
   position: relative;
   width: 256px;
   &.fullWidth {
-    width: 100%
+    width: 100%;
   }
 }
 </style>

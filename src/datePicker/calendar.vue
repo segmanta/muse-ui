@@ -1,27 +1,59 @@
 <template>
-<div class="mu-calendar" :class="{'mu-calendar-landspace': mode === 'landscape'}">
-  <date-display @selectYear="selectYear" @selectMonth="selectMonth" :monthDaySelected="displayMonthDay" :disableYearSelection="disableYearSelection" :selectedDate="selectedDate" :dateTimeFormat="dateTimeFormat"></date-display>
-  <div class="mu-calendar-container">
-    <div class="mu-calendar-monthday-container" v-if="shouldShowYearFirst">
-      <calendar-toolbar :slideType="slideType" :nextMonth="nextMonth" :prevMonth="prevMonth" @monthChange="handleMonthChange" :displayDates="displayDates" :dateTimeFormat="dateTimeFormat" />
-      <div class="mu-calendar-week">
-        <span class="mu-calendar-week-day" v-for="weekText, index in weekTexts" :key="index">{{weekText}}</span>
+  <div class="mu-calendar" :class="{ 'mu-calendar-landspace': mode === 'landscape' }">
+    <date-display
+      @selectYear="selectYear"
+      @selectMonth="selectMonth"
+      :monthDaySelected="displayMonthDay"
+      :disableYearSelection="disableYearSelection"
+      :selectedDate="selectedDate"
+      :dateTimeFormat="dateTimeFormat"
+    ></date-display>
+    <div class="mu-calendar-container">
+      <div class="mu-calendar-monthday-container" v-if="displayMonthDay">
+        <calendar-toolbar
+          :slideType="slideType"
+          :nextMonth="nextMonth"
+          :prevMonth="prevMonth"
+          @monthChange="handleMonthChange"
+          :displayDates="displayDates"
+          :dateTimeFormat="dateTimeFormat"
+        />
+        <div class="mu-calendar-week">
+          <span class="mu-calendar-week-day" v-for="(weekText, index) in weekTexts" :key="index">{{ weekText }}</span>
+        </div>
+        <div class="mu-calendar-monthday">
+          <transition
+            :name="'mu-calendar-slide-' + slideType"
+            v-for="(displayDate, index) in displayDates"
+            :key="index"
+          >
+            <div class="mu-calendar-monthday-slide" :key="displayDate.getTime()">
+              <calendar-month
+                @selected="handleSelected"
+                :shouldDisableDate="shouldDisableDate"
+                :displayDate="displayDate"
+                :firstDayOfWeek="firstDayOfWeek"
+                :maxDate="maxDate"
+                :minDate="minDate"
+                :selectedDate="selectedDate"
+              />
+            </div>
+          </transition>
+        </div>
       </div>
-      <div class="mu-calendar-monthday">
-        <transition :name="'mu-calendar-slide-' + slideType" v-for="displayDate, index in displayDates" :key="index">
-          <div class="mu-calendar-monthday-slide" :key="displayDate.getTime()" >
-            <calendar-month @selected="handleSelected" :shouldDisableDate="shouldDisableDate" :displayDate="displayDate" :firstDayOfWeek="firstDayOfWeek" :maxDate="maxDate" :minDate="minDate" :selectedDate="selectedDate" />
-          </div>
-        </transition>
+      <calendar-year
+        @change="handleYearChange"
+        v-if="!displayMonthDay"
+        :selectedDate="selectedDate"
+        :maxDate="maxDate"
+        :minDate="minDate"
+      />
+      <div class="mu-calendar-actions">
+        <flat-button :label="cancelLabel" @click="handleCancel" primary />
+        <flat-button v-if="!autoOk" @click="handleOk" :label="okLabel" primary />
       </div>
-    </div>
-    <calendar-year @change="handleYearChange" v-if="!shouldShowYearFirst" :selectedDate="selectedDate" :maxDate="maxDate" :minDate="minDate"/>
-    <div class="mu-calendar-actions">
-      <flat-button :label="cancelLabel"  @click="handleCancel" primary/>
-      <flat-button v-if="!autoOk" @click="handleOk" :label="okLabel" primary/>
     </div>
   </div>
-</div>
 </template>
 
 <script>
@@ -36,64 +68,64 @@ export default {
   props: {
     dateTimeFormat: {
       type: Object,
-      default () {
+      default() {
         return dateUtils.dateTimeFormat
-      }
+      },
     },
     autoOk: {
       type: Boolean,
-      default: false
+      default: false,
     },
     okLabel: {
       type: String,
-      default: '确定'
+      default: '确定',
     },
     cancelLabel: {
       type: String,
-      default: '取消'
+      default: '取消',
     },
     disableYearSelection: {
       type: Boolean,
-      default: false
+      default: false,
     },
     firstDayOfWeek: {
       type: Number,
-      default: 1
+      default: 1,
     },
     initialDate: {
       type: Date,
-      default () {
+      default() {
         return new Date()
-      }
+      },
     },
     maxDate: {
       type: Date,
-      default () {
+      default() {
         return dateUtils.addYears(new Date(), 100)
-      }
+      },
     },
     minDate: {
       type: Date,
-      default () {
+      default() {
         return dateUtils.addYears(new Date(), -100)
-      }
+      },
     },
     mode: {
       type: String,
       default: 'portrait',
-      validator (val) {
+      validator(val) {
         return val && ['portrait', 'landscape'].indexOf(val) !== -1
-      }
+      },
     },
     shouldDisableDate: {
-      type: Function
+      type: Function,
     },
-    shouldShowYearFirst: { 
+    shouldShowYearFirst: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
-  data () {
+  data() {
     const displayDate = dateUtils.cloneDate(this.initialDate)
     displayDate.setDate(1)
     return {
@@ -101,24 +133,24 @@ export default {
       displayDates: [displayDate],
       selectedDate: this.initialDate,
       slideType: 'next',
-      displayMonthDay: true
+      displayMonthDay: !this.shouldShowYearFirst,
     }
   },
   computed: {
-    prevMonth () {
+    prevMonth() {
       return this.displayDates && dateUtils.monthDiff(this.displayDates[0], this.minDate) > 0
     },
-    nextMonth () {
+    nextMonth() {
       return this.displayDates && dateUtils.monthDiff(this.displayDates[0], this.maxDate) < 0
-    }
+    },
   },
   methods: {
-    handleMonthChange (val) {
+    handleMonthChange(val) {
       const displayDate = dateUtils.addMonths(this.displayDates[0], val)
       this.changeDislayDate(displayDate)
       this.$emit('monthChange', displayDate)
     },
-    handleYearChange (year) {
+    handleYearChange(year) {
       if (this.selectedDate.getFullYear() === year) return
       let date = dateUtils.cloneAsDate(this.selectedDate)
       date.setFullYear(year)
@@ -126,26 +158,26 @@ export default {
       this.selectMonth()
       this.$emit('yearChange', date)
     },
-    handleSelected (date) {
+    handleSelected(date) {
       this.setSelected(date)
       if (this.autoOk) this.handleOk()
     },
-    handleCancel () {
+    handleCancel() {
       this.$emit('dismiss')
     },
-    handleOk () {
-      const {selectedDate, maxDate, minDate} = this
+    handleOk() {
+      const { selectedDate, maxDate, minDate } = this
 
       if (selectedDate.getTime() > maxDate.getTime()) this.selectedDate = new Date(maxDate.getTime())
       if (selectedDate.getTime() < minDate.getTime()) this.selectedDate = new Date(minDate.getTime())
 
       this.$emit('accept', this.selectedDate)
     },
-    setSelected (date) {
+    setSelected(date) {
       this.selectedDate = date
       this.changeDislayDate(date)
     },
-    changeDislayDate (date) {
+    changeDislayDate(date) {
       const oldDate = this.displayDates[0]
       if (date.getFullYear() === oldDate.getFullYear() && date.getMonth() === oldDate.getMonth()) return
       this.slideType = date.getTime() > oldDate.getTime() ? 'next' : 'prev'
@@ -154,22 +186,22 @@ export default {
       this.displayDates.push(displayDate)
       this.displayDates.splice(0, 1)
     },
-    selectYear () {
+    selectYear() {
       this.displayMonthDay = false
     },
-    selectMonth () {
+    selectMonth() {
       this.displayMonthDay = true
     },
-    addSelectedDays (days) {
+    addSelectedDays(days) {
       this.setSelected(dateUtils.addDays(this.selectedDate, days))
     },
-    addSelectedMonths (months) {
+    addSelectedMonths(months) {
       this.setSelected(dateUtils.addMonths(this.selectedDate, months))
     },
-    addSelectedYears (years) {
+    addSelectedYears(years) {
       this.setSelected(dateUtils.addYears(this.selectedDate, years))
     },
-    handleKeyDown (event) {
+    handleKeyDown(event) {
       switch (keycode(event)) {
         case 'up':
           if (event.altKey && event.shiftKey) {
@@ -211,19 +243,19 @@ export default {
           }
           break
       }
-    }
+    },
   },
-  mounted () {
-    this.handleWindowKeyDown = (event) => {
+  mounted() {
+    this.handleWindowKeyDown = event => {
       this.handleKeyDown(event)
     }
     typeof window !== 'undefined' && window.addEventListener('keydown', this.handleWindowKeyDown)
   },
-  beforeDestory () {
+  beforeDestory() {
     window.removeEventListener('keydown', this.handleWindowKeyDown)
   },
   watch: {
-    initialDate (val) {
+    initialDate(val) {
       this.selectedDate = val
     },
   },
@@ -232,24 +264,24 @@ export default {
     'calendar-toolbar': calendarToolbar,
     'flat-button': flatButton,
     'calendar-month': calendarMonth,
-    'calendar-year': calendarYear
-  }
+    'calendar-year': calendarYear,
+  },
 }
 </script>
 
 <style lang="less">
-@import "../styles/import.less";
+@import '../styles/import.less';
 .mu-calendar {
   color: @textColor;
   user-select: none;
   width: 310px;
 }
 
-.mu-calendar-landspace{
+.mu-calendar-landspace {
   width: 479px;
 }
 
-.mu-calendar-container{
+.mu-calendar-container {
   display: flex;
   flex-direction: column;
 }
@@ -262,7 +294,7 @@ export default {
   font-size: 12px;
   font-weight: 400;
   padding: 0px 8px;
-  transition: all .45s @easeOutFunction;
+  transition: all 0.45s @easeOutFunction;
 }
 
 .mu-calendar-week {
@@ -280,18 +312,18 @@ export default {
   width: 42px;
 }
 
-.mu-calendar-monthday{
+.mu-calendar-monthday {
   position: relative;
   overflow: hidden;
   height: 214px;
 }
 
-.mu-calendar-monthday-slide{
+.mu-calendar-monthday-slide {
   height: 100%;
   width: 100%;
 }
 
-.mu-calendar-actions{
+.mu-calendar-actions {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -330,6 +362,4 @@ export default {
   transform: translate3d(100%, 0, 0);
   opacity: 0;
 }
-
-
 </style>
