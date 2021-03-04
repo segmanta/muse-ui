@@ -90,9 +90,7 @@ export default {
     },
     shouldShowYearFirst: { 
       type: Boolean,
-      default() { 
-        return false
-      }
+      default: false
     }
   },
   data () {
@@ -103,7 +101,7 @@ export default {
       displayDates: [displayDate],
       selectedDate: this.initialDate,
       slideType: 'next',
-      displayMonthDay: !this.shouldShowYearFirst
+      displayMonthDay: true
     }
   },
   computed: {
