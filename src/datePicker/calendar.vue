@@ -2,7 +2,7 @@
 <div class="mu-calendar" :class="{'mu-calendar-landspace': mode === 'landscape'}">
   <date-display @selectYear="selectYear" @selectMonth="selectMonth" :monthDaySelected="displayMonthDay" :disableYearSelection="disableYearSelection" :selectedDate="selectedDate" :dateTimeFormat="dateTimeFormat"></date-display>
   <div class="mu-calendar-container">
-    <div class="mu-calendar-monthday-container" v-if="displayMonthDay">
+    <div class="mu-calendar-monthday-container" v-if="shouldShowYearFirst">
       <calendar-toolbar :slideType="slideType" :nextMonth="nextMonth" :prevMonth="prevMonth" @monthChange="handleMonthChange" :displayDates="displayDates" :dateTimeFormat="dateTimeFormat" />
       <div class="mu-calendar-week">
         <span class="mu-calendar-week-day" v-for="weekText, index in weekTexts" :key="index">{{weekText}}</span>
@@ -15,7 +15,7 @@
         </transition>
       </div>
     </div>
-    <calendar-year @change="handleYearChange" v-if="!displayMonthDay" :selectedDate="selectedDate" :maxDate="maxDate" :minDate="minDate"/>
+    <calendar-year @change="handleYearChange" v-if="!shouldShowYearFirst" :selectedDate="selectedDate" :maxDate="maxDate" :minDate="minDate"/>
     <div class="mu-calendar-actions">
       <flat-button :label="cancelLabel"  @click="handleCancel" primary/>
       <flat-button v-if="!autoOk" @click="handleOk" :label="okLabel" primary/>
@@ -225,7 +225,7 @@ export default {
   watch: {
     initialDate (val) {
       this.selectedDate = val
-    }
+    },
   },
   components: {
     'date-display': dateDisplay,
