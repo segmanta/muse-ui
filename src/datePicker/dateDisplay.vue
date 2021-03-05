@@ -1,85 +1,110 @@
 <template>
-<div class="mu-date-display" :class="displayClass">
-  <div class="mu-date-display-year" :class="{'disabled': disableYearSelection}" @click="handleSelectYear">
-    <transition :name="'mu-date-display-' +  slideType" v-for="displayDate, index in displayDates" :key="index">
-      <div class="mu-date-display-slideIn-wrapper" :key="displayDate.getFullYear()">
-        <div class="mu-date-display-year-title">
-          {{displayDate.getFullYear()}}
+  <div class="mu-date-display" :class="displayClass">
+    <div class="mu-date-display-year" :class="{ disabled: disableYearSelection }" @click="handleSelectYear">
+      <transition :name="'mu-date-display-' + slideType" v-for="(displayDate, index) in displayDates" :key="index">
+        <div class="mu-date-display-slideIn-wrapper" :key="displayDate.getFullYear()">
+          <div class="mu-date-display-year-title">
+            <!-- <div>
+              {{ displayDate.getFullYear() }}
+            </div>
+            <icon value="keyboard_arrow_down" :size="18" class="mu-calendar-icon" color="white"></icon> -->
+            <flatButton
+              labelPosition="before"
+              :icon="iconDirection"
+              iconClass="mu-year-selector-icon"
+              :label="displayDate.getFullYear().toString()"
+              fullWidth
+              secondary
+              backgroundColor="#C8DAFC"
+            ></flatButton>
+          </div>
         </div>
-      </div>
-    </transition>
-  </div>
-  <div class="mu-date-display-monthday" @click="handleSelectMonth">
-    <transition :name="'mu-date-display-' +  slideType" v-for="displayDate, index in displayDates" :key="index">
-      <div class="mu-date-display-slideIn-wrapper" :key="dateTimeFormat.formatDisplay(displayDate)" >
-        <div class="mu-date-display-monthday-title">
-          {{dateTimeFormat.formatDisplay(displayDate)}}
+      </transition>
+    </div>
+    <div class="mu-date-display-monthday" @click="handleSelectMonth">
+      <transition :name="'mu-date-display-' + slideType" v-for="(displayDate, index) in displayDates" :key="index">
+        <div class="mu-date-display-slideIn-wrapper" :key="dateTimeFormat.formatDisplay(displayDate)">
+          <div class="mu-date-display-monthday-title">
+            {{ dateTimeFormat.formatDisplay(displayDate) }}
+          </div>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </div>
   </div>
-</div>
 </template>
 
 <script>
+import icon from '../icon'
+import flatButton from '../flatButton'
 export default {
   props: {
     dateTimeFormat: {
-      type: Object
+      type: Object,
     },
     disableYearSelection: {
       type: Boolean,
-      default: false
+      default: false,
     },
     monthDaySelected: {
       type: Boolean,
-      default: true
+      default: true,
     },
     selectedDate: {
-      type: Date
-    }
+      type: Date,
+    },
   },
-  data () {
+  data() {
     return {
       displayDates: [this.selectedDate],
-      slideType: 'next'
+      slideType: 'next',
     }
   },
   computed: {
-    selectedYear () {
+    selectedYear() {
       return !this.monthDaySelected
     },
-    displayClass () {
+    displayClass() {
       return {
-        'selected-year': this.selectedYear
+        'selected-year': this.selectedYear,
       }
-    }
+    },
+    iconDirection() {
+      if (this.selectedYear) {
+        return 'keyboard_arrow_up'
+      } else {
+        return 'keyboard_arrow_down'
+      }
+    },
   },
   methods: {
-    replaceSelected (date) {
+    replaceSelected(date) {
       let oldDate = this.displayDates[0]
       this.slideType = date.getTime() > oldDate.getTime() ? 'next' : 'prev'
       this.displayDates.push(date)
       this.displayDates.splice(0, 1)
     },
-    handleSelectYear () {
+    handleSelectYear() {
       if (!this.disableYearSelection) this.$emit('selectYear')
     },
-    handleSelectMonth () {
+    handleSelectMonth() {
       this.$emit('selectMonth')
-    }
+    },
   },
   watch: {
-    selectedDate (val) {
+    selectedDate(val) {
       this.replaceSelected(val)
-    }
-  }
+    },
+  },
+  components: {
+    icon,
+    flatButton,
+  },
 }
 </script>
 
 <style lang="less">
-@import "../styles/import.less";
-.mu-date-display{
+@import '../styles/import.less';
+.mu-date-display {
   width: 100%;
   font-weight: 700;
   display: block;
@@ -98,6 +123,16 @@ export default {
   }
 }
 
+.mu-year-selector-icon {
+  font-size: 14px;
+}
+
+.mu-calendar-icon {
+  position: relative;
+  float: right;
+  bottom: 18px;
+}
+
 .mu-date-display-year {
   position: relative;
   overflow: hidden;
@@ -105,25 +140,23 @@ export default {
   font-size: 16px;
   font-weight: 500;
   line-height: 16px;
-  height: 16px;
+  height: 40px;
   opacity: 0.7;
-  transition: all .45s @easeOutFunction;
+  transition: all 0.45s @easeOutFunction;
   margin-bottom: 10px;
-  .mu-date-display.selected-year &{
+  .mu-date-display.selected-year & {
     opacity: 1;
   }
 }
 
-
 .mu-date-display-year-title {
   cursor: pointer;
-  .mu-date-display-year.disabled &{
+  .mu-date-display-year.disabled & {
     cursor: not-allowed;
   }
   .mu-date-display.selected-year {
     cursor: default;
   }
-
 }
 
 .mu-date-display-monthday {
@@ -133,10 +166,10 @@ export default {
   font-size: 36px;
   line-height: 36px;
   height: 38px;
-  transition: all .45s @easeOutFunction;
+  transition: all 0.45s @easeOutFunction;
   width: 100%;
   font-weight: 500;
-  .mu-date-display.selected-year &{
+  .mu-date-display.selected-year & {
     opacity: 0.7;
   }
   .mu-calendar-landspace & {
@@ -156,7 +189,7 @@ export default {
   cursor: default;
   width: 100%;
   display: block;
-  .mu-date-display.selected-year &{
+  .mu-date-display.selected-year & {
     cursor: pointer;
   }
 }
