@@ -33,6 +33,6 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   # publish
   git push origin refs/tags/v$VERSION
   git push
-  npm config set registry http://registry.npmjs.org
-  npm publish
+  # npm config set registry http://registry.npmjs.org
+  # npm publish
 fi
