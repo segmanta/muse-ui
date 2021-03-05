@@ -18,14 +18,6 @@
   background-color: #ff4081;
   color: #303030;
 }
-body {
-  background-color: #303030;
-  color: #ffffff;
-  font-family: Roboto, Lato, sans-serif;
-}
-a {
-  color: #ff4081;
-}
 .mu-bottom-nav {
   background-color: #424242;
 }
@@ -50,8 +42,13 @@ a {
 .mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
   color: #303030;
 }
-.mu-bottom-sheet {
-  background-color: #424242;
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff4081;
 }
 .mu-card {
   background-color: #303030;
@@ -104,6 +101,9 @@ a {
 .mu-checkbox.disabled .mu-checkbox-icon-checked {
   color: rgba(255, 255, 255, 0.3);
 }
+.mu-bottom-sheet {
+  background-color: #424242;
+}
 .mu-chip {
   background-color: #4f4f4f;
   color: rgba(255, 255, 255, 0.87);
@@ -120,19 +120,6 @@ a {
 }
 .mu-circular-progress-determinate-path {
   stroke: #1976d2;
-}
-.mu-dialog {
-  background-color: #424242;
-}
-.mu-dialog-footer.scrollable,
-.mu-dialog-header.scrollable {
-  border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-.mu-dialog-title {
-  color: #ffffff;
-}
-.mu-dialog-body {
-  color: rgba(255, 255, 255, 0.6);
 }
 .mu-calendar {
   color: #ffffff;
@@ -168,6 +155,28 @@ a {
 .mu-year-button.hover .mu-year-button-text {
   color: #1976d2;
 }
+.mu-dialog {
+  background-color: #424242;
+}
+.mu-dialog-footer.scrollable,
+.mu-dialog-header.scrollable {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+.mu-dialog-title {
+  color: #ffffff;
+}
+.mu-dialog-body {
+  color: rgba(255, 255, 255, 0.6);
+}
+.mu-dropDown-menu-text {
+  color: #ffffff;
+}
+.mu-dropDown-menu-icon {
+  color: rgba(255, 255, 255, 0.3);
+}
+.mu-dropDown-menu-line {
+  background-color: rgba(255, 255, 255, 0.3);
+}
 .mu-flat-button {
   color: #ffffff;
   background-color: transparent;
@@ -180,15 +189,6 @@ a {
 }
 .mu-flat-button-secondary {
   color: #ff4081;
-}
-.mu-dropDown-menu-text {
-  color: #ffffff;
-}
-.mu-dropDown-menu-icon {
-  color: rgba(255, 255, 255, 0.3);
-}
-.mu-dropDown-menu-line {
-  background-color: rgba(255, 255, 255, 0.3);
 }
 .mu-float-button {
   background-color: #1976d2;
@@ -216,21 +216,6 @@ a {
 .mu-grid-tile-action .mu-icon {
   color: #ffffff;
 }
-.mu-circle-spinner {
-  border-color: #1976d2;
-}
-.mu-circle-secondary {
-  border-color: #ff4081;
-}
-.mu-linear-progress {
-  background-color: #757575;
-}
-.mu-linear-progress-indeterminate {
-  background-color: #1976d2;
-}
-.mu-linear-progress-determinate {
-  background-color: #1976d2;
-}
 .mu-item-wrapper.hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -255,6 +240,12 @@ a {
 .mu-item-text {
   color: rgba(255, 255, 255, 0.7);
 }
+.mu-circle-spinner {
+  border-color: #1976d2;
+}
+.mu-circle-secondary {
+  border-color: #ff4081;
+}
 .mu-menu-item-wrapper {
   color: #ffffff;
 }
@@ -273,6 +264,15 @@ a {
 .mu-menu-item-right-icon {
   color: #757575;
 }
+.mu-linear-progress {
+  background-color: #757575;
+}
+.mu-linear-progress-indeterminate {
+  background-color: #1976d2;
+}
+.mu-linear-progress-determinate {
+  background-color: #1976d2;
+}
 .mu-pagination-item {
   color: #ffffff;
 }
@@ -286,8 +286,20 @@ a {
 .mu-pagination-item.disabled {
   color: rgba(255, 255, 255, 0.3);
 }
-.mu-paper {
+.mu-picker {
   background-color: #424242;
+}
+.mu-picker-center-highlight::before,
+.mu-picker-center-highlight::after {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.mu-picker-slot.mu-picker-slot-divider {
+  color: #ffffff;
+}
+.mu-picker-item {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mu-picker-item.selected {
   color: #ffffff;
 }
 .mu-popover {
@@ -295,6 +307,10 @@ a {
 }
 .mu-popup {
   background-color: #424242;
+}
+.mu-paper {
+  background-color: #424242;
+  color: #ffffff;
 }
 .mu-radio input[type="radio"]:checked + .mu-radio-wrapper .mu-radio-icon-uncheck {
   color: #1976d2;
@@ -336,22 +352,6 @@ a {
 }
 .mu-raised-button-secondary {
   background-color: #ff4081;
-}
-.mu-picker {
-  background-color: #424242;
-}
-.mu-picker-center-highlight::before,
-.mu-picker-center-highlight::after {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-.mu-picker-slot.mu-picker-slot-divider {
-  color: #ffffff;
-}
-.mu-picker-item {
-  color: rgba(255, 255, 255, 0.7);
-}
-.mu-picker-item.selected {
-  color: #ffffff;
 }
 .mu-refresh-control {
   color: #1976d2;
@@ -453,6 +453,31 @@ a {
 .mu-switch.disabled .mu-switch-thumb {
   background-color: #e0e0e0;
 }
+.mu-table {
+  background-color: #303030;
+}
+.mu-thead {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+.mu-th {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mu-tr {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+.mu-tr.selected {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.mu-tr.hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.mu-tr.stripe {
+  background-color: rgba(237, 245, 253, 0.4);
+}
+.mu-tfoot .mu-tr {
+  border-top-color: rgba(255, 255, 255, 0.3);
+}
 .mu-tabs {
   background-color: #1976d2;
 }
@@ -464,6 +489,24 @@ a {
 }
 .mu-tab-active {
   color: #303030;
+}
+.mu-clock-circle {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.mu-time-display {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+.mu-clock-number.selected {
+  background-color: #1976d2;
+  color: #303030;
+}
+.mu-clock-pointer {
+  background-color: #1976d2;
+}
+.mu-clock-pointer-mark {
+  background-color: #303030;
+  border-color: #1976d2;
 }
 .mu-text-field {
   color: rgba(255, 255, 255, 0.7);
@@ -501,56 +544,13 @@ a {
 .mu-text-field.has-label .mu-text-field-label.float {
   color: rgba(255, 255, 255, 0.3);
 }
-.mu-table {
-  background-color: #303030;
-}
-.mu-thead {
-  border-bottom-color: rgba(255, 255, 255, 0.3);
-}
-.mu-th {
-  color: rgba(255, 255, 255, 0.7);
-}
-.mu-tr {
-  border-bottom-color: rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-}
-.mu-tr.selected {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-.mu-tr.hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.mu-tr.stripe {
-  background-color: rgba(237, 245, 253, 0.4);
-}
-.mu-tfoot .mu-tr {
-  border-top-color: rgba(255, 255, 255, 0.3);
-}
-.mu-toast {
-  background-color: #ffffff;
-  color: #303030;
-}
 .mu-tooltip {
   color: #303030;
 }
 .mu-tooltip-ripple.when-shown {
   background-color: #616161;
 }
-.mu-clock-circle {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-.mu-time-display {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-}
-.mu-clock-number.selected {
-  background-color: #1976d2;
+.mu-toast {
+  background-color: #ffffff;
   color: #303030;
-}
-.mu-clock-pointer {
-  background-color: #1976d2;
-}
-.mu-clock-pointer-mark {
-  background-color: #303030;
-  border-color: #1976d2;
 }

@@ -23,6 +23,8 @@
 @bottomNavSelectedColor: @primaryColor;
 @bottomNavShiftSelectedColor: @alternateTextColor;
 
+@bottomSheetColor: @dialogBackgroundColor;
+
 @cardBackgroudColor: @backgroundColor;
 @cardTitleColor: fade(@textColor, 87%);
 @cardSubtitleColor: fade(@textColor, 54%);
@@ -37,15 +39,18 @@
 @checkboxDisabledColor: @disabledColor;
 @checkboxCheckedColor: @primaryColor;
 
+@circularProgressColor: @primaryColor;
+
 @chipColor: darken(@alternateTextColor, 12%);
 @chipHoverColor: rgb(206, 206, 206);
 @chipTextColor: fade(@textColor, 87%);
 @chipDeleteColor: fade(@textColor, 26%);
 @chipHoverDeleteColor: fade(fade(@textColor, 26%), 40%);
 
-@circularProgressColor: @primaryColor;
-
-@bottomSheetColor: @dialogBackgroundColor;
+@dialogBorderColor: @borderColor;
+@dialogTitleColor: @textColor;
+@dialogBodyColor: fade(@textColor, 60%);;
+@dialogColor: @dialogBackgroundColor;
 
 @datePickerColor: @primaryColor;
 @datePickerTextColor: @alternateTextColor;
@@ -55,20 +60,15 @@
 @datePickerCalendarYearBackgroundColor: @dialogBackgroundColor;
 @datePickerHeaderColor: @primaryColor;
 
-@dialogBorderColor: @borderColor;
-@dialogTitleColor: @textColor;
-@dialogBodyColor: fade(@textColor, 60%);;
-@dialogColor: @dialogBackgroundColor;
+@dropDownMenuTextColor: @textColor;
+@dropDownMenuIconColor: @borderColor;
+@dropDownMenuLineColor: @borderColor;
 
 // flatButton
 @flatButtonColor: transparent;
 @flatButtonTextColor: @textColor;
 @flatButtonPrimaryTextColor: @primaryColor;
 @flatButtonSecondaryTextColor: @accentColor;
-
-@dropDownMenuTextColor: @textColor;
-@dropDownMenuIconColor: @borderColor;
-@dropDownMenuLineColor: @borderColor;
 
 // floatButton
 @floatButtonColor: @primaryColor;
@@ -109,17 +109,15 @@
 @paginationActiveColor: @white;
 @paginationDisabledColor: @disabledColor;
 
+@paperColor: @textColor;
+@paperBackgroundColor: @dialogBackgroundColor;
+
 @pickerColor: @dialogBackgroundColor;
 @pickerTextColor: @secondaryTextColor;
 @pickerSelectedTextColor: @textColor;
 @pickerBorderColor: @borderColor;
 
 @popoverColor: @dialogBackgroundColor;
-
-@paperColor: @textColor;
-@paperBackgroundColor: @dialogBackgroundColor;
-
-@popupColor: @dialogBackgroundColor;
 
 @radioColor: @textColor;
 @radioTextColor: @textColor;
@@ -133,6 +131,8 @@
 @raisedButtonSecondaryColor: @accentColor;
 @raisedButtonDisabledColor: darken(@alternateTextColor, 10%);
 @raisedButtonDisabledTextColor: fade(@textColor, 30%);
+
+@popupColor: @dialogBackgroundColor;
 
 @refreshControlColor: @primaryColor;
 
@@ -157,14 +157,6 @@
 // subHeader
 @subHeaderColor: @secondaryTextColor;
 
-@tableBackgroundColor: @alternateTextColor;
-@tableBorderColor: @borderColor;
-@tableTextColor: @textColor;
-@tableRowSelectedBackgroundColor: @grey100;
-@tableRowHoverBackgroundColor: @grey200;
-@tableRowStripeBackgroundColor: fade(lighten(@primaryColor, 50%), 40%);
-@tableTheadTextColor: @secondaryTextColor;
-
 @switchThumbOnColor: @primaryColor;
 @switchThumbOffColor: @darkerAccentColor;
 @switchThumbDisabledColor: @grey300;
@@ -173,6 +165,14 @@
 @switchTrackDisabledColor: @lighterPrimaryColor;
 @switchTextColor: @textColor;
 @switchTextDisabledColor: @disabledColor;
+
+@tableBackgroundColor: @alternateTextColor;
+@tableBorderColor: @borderColor;
+@tableTextColor: @textColor;
+@tableRowSelectedBackgroundColor: @grey100;
+@tableRowHoverBackgroundColor: @grey200;
+@tableRowStripeBackgroundColor: fade(lighten(@primaryColor, 50%), 40%);
+@tableTheadTextColor: @secondaryTextColor;
 
 @tabsBackgroundColor: @primaryColor;
 @tabsLineColor: @accentColor;
@@ -190,15 +190,15 @@
 @textFieldErrorLineColor: @red;
 @textFieldDisabledLineColor: @disabledColor;
 
-@toastTextColor: @alternateTextColor;
-@toastColor: @textColor;
-
-@tooltipTextColor: @alternateTextColor;
-@tooltipRippleColor: @grey700;
-
 @timePickerColor: @alternateTextColor;
 @timePickerClockColor: @textColor;
 @timePickerClockCircleColor: fade(@darkBlack, 7%);
 @timePickerSelectColor: @primaryColor;
 @timePickerSelectTextColor: @alternateTextColor;
 @timePickerHeaderColor: @primaryColor;
+
+@tooltipTextColor: @alternateTextColor;
+@tooltipRippleColor: @grey700;
+
+@toastTextColor: @alternateTextColor;
+@toastColor: @textColor;

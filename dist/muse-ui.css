@@ -1,5 +1,5 @@
 /*!
- * Muse UI v2.1.1 (https://github.com/myronliu347/vue-carbon)
+ * Muse UI v2.1.2 (https://github.com/myronliu347/vue-carbon)
  * (c) 2021 Myron Liu 
  * Released under the MIT License.
  */

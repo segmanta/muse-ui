@@ -23,16 +23,6 @@
   color: @badgeSecondaryTextColor;
 }
 
-body {
-  background-color: @baseBackgroundColor;
-  color: @baseTextColor;
-  font-family: @baseFontFamily;
-}
-
-a {
-  color: @baseLinkColor;
-}
-
 .mu-bottom-nav {
   background-color: @bottomNavBackgroundColor;
 }
@@ -63,8 +53,14 @@ a {
   }
 }
 
-.mu-bottom-sheet {
-  background-color: @bottomSheetColor;
+body {
+  background-color: @baseBackgroundColor;
+  color: @baseTextColor;
+  font-family: @baseFontFamily;
+}
+
+a {
+  color: @baseLinkColor;
 }
 
 .mu-card {
@@ -141,6 +137,10 @@ a {
   }
 }
 
+.mu-bottom-sheet {
+  background-color: @bottomSheetColor;
+}
+
 .mu-chip {
   background-color: @chipColor;
   color: @chipTextColor;
@@ -159,25 +159,6 @@ a {
 
 .mu-circular-progress-determinate-path{
   stroke: @circularProgressColor;
-}
-
-.mu-dialog {
-  background-color: @dialogColor;
-}
-
-.mu-dialog-footer,
-.mu-dialog-header {
-  &.scrollable{
-    border-bottom-color: @dialogBorderColor;
-  }
-}
-
-.mu-dialog-title{
-  color: @dialogTitleColor;
-}
-
-.mu-dialog-body {
-  color: @dialogBodyColor
 }
 
 .mu-calendar {
@@ -222,6 +203,37 @@ a {
   }
 }
 
+.mu-dialog {
+  background-color: @dialogColor;
+}
+
+.mu-dialog-footer,
+.mu-dialog-header {
+  &.scrollable{
+    border-bottom-color: @dialogBorderColor;
+  }
+}
+
+.mu-dialog-title{
+  color: @dialogTitleColor;
+}
+
+.mu-dialog-body {
+  color: @dialogBodyColor
+}
+
+.mu-dropDown-menu-text {
+  color: @dropDownMenuTextColor;
+}
+
+.mu-dropDown-menu-icon {
+  color: @dropDownMenuIconColor;
+}
+
+.mu-dropDown-menu-line {
+  background-color: @dropDownMenuLineColor;
+}
+
 // flatbutton
 .mu-flat-button {
   color: @flatButtonTextColor;
@@ -237,18 +249,6 @@ a {
 
 .mu-flat-button-secondary{
   color: @flatButtonSecondaryTextColor;
-}
-
-.mu-dropDown-menu-text {
-  color: @dropDownMenuTextColor;
-}
-
-.mu-dropDown-menu-icon {
-  color: @dropDownMenuIconColor;
-}
-
-.mu-dropDown-menu-line {
-  background-color: @dropDownMenuLineColor;
 }
 
 .mu-float-button {
@@ -287,28 +287,6 @@ a {
 }
 
 
-// circle
-.mu-circle-spinner{
-  border-color: @circleColor;
-}
-
-.mu-circle-secondary {
-  border-color: @circleSecondaryColor;
-}
-
-.mu-linear-progress{
-  background-color: @linearProgressColor;
-}
-
-.mu-linear-progress-indeterminate{
-  background-color: @linearProgressFillColor;
-}
-
-.mu-linear-progress-determinate{
-  background-color: @linearProgressFillColor;
-}
-
-
 // list
 .mu-item-wrapper{
   &.hover {
@@ -342,6 +320,16 @@ a {
   color: @listSecondaryTextColor;
 }
 
+
+// circle
+.mu-circle-spinner{
+  border-color: @circleColor;
+}
+
+.mu-circle-secondary {
+  border-color: @circleSecondaryColor;
+}
+
 .mu-menu-item-wrapper{
   color: @menuTextColor;
   &.active {
@@ -363,6 +351,18 @@ a {
   color: @menuRightIconColor;
 }
 
+.mu-linear-progress{
+  background-color: @linearProgressColor;
+}
+
+.mu-linear-progress-indeterminate{
+  background-color: @linearProgressFillColor;
+}
+
+.mu-linear-progress-determinate{
+  background-color: @linearProgressFillColor;
+}
+
 .mu-pagination-item{
   color: @paginationTextColor;
   &.hover {
@@ -377,9 +377,27 @@ a {
   }
 }
 
-.mu-paper {
-  background-color: @paperBackgroundColor;
-  color: @paperColor;
+.mu-picker{
+  background-color: @pickerColor;
+}
+
+.mu-picker-center-highlight {
+  &::before,
+  &::after {
+    background-color: @pickerBorderColor;
+  }
+}
+
+
+.mu-picker-slot.mu-picker-slot-divider {
+  color: @pickerSelectedTextColor;
+}
+
+.mu-picker-item{
+  color: @pickerTextColor;
+  &.selected {
+    color: @pickerSelectedTextColor;
+  }
 }
 
 .mu-popover {
@@ -388,6 +406,11 @@ a {
 
 .mu-popup {
   background-color: @popupColor;
+}
+
+.mu-paper {
+  background-color: @paperBackgroundColor;
+  color: @paperColor;
 }
 
 .mu-radio {
@@ -450,29 +473,6 @@ a {
 
 .mu-raised-button-secondary{
   background-color: @raisedButtonSecondaryColor;
-}
-
-.mu-picker{
-  background-color: @pickerColor;
-}
-
-.mu-picker-center-highlight {
-  &::before,
-  &::after {
-    background-color: @pickerBorderColor;
-  }
-}
-
-
-.mu-picker-slot.mu-picker-slot-divider {
-  color: @pickerSelectedTextColor;
-}
-
-.mu-picker-item{
-  color: @pickerTextColor;
-  &.selected {
-    color: @pickerSelectedTextColor;
-  }
 }
 
 .mu-refresh-control {
@@ -613,6 +613,36 @@ a {
   }
 }
 
+.mu-table {
+  background-color: @tableBackgroundColor;
+}
+
+.mu-thead {
+  border-bottom-color: @tableBorderColor;
+}
+
+.mu-th {
+  color: @tableTheadTextColor;
+}
+
+.mu-tr {
+  border-bottom-color: @tableBorderColor;
+  color: @tableTextColor;
+  &.selected {
+    background-color: @tableRowSelectedBackgroundColor;
+  }
+  &.hover {
+    background-color: @tableRowHoverBackgroundColor;
+  }
+  &.stripe {
+    background-color: @tableRowStripeBackgroundColor;
+  }
+
+  .mu-tfoot & {
+    border-top-color: @tableBorderColor;
+  }
+}
+
 .mu-tabs{
   background-color: @tabsBackgroundColor;
 }
@@ -624,6 +654,32 @@ a {
 }
 .mu-tab-active {
   color: @tabsSelectedTextColor;
+}
+
+.mu-clock-circle {
+  background-color: @timePickerClockCircleColor;
+}
+
+.mu-time-display {
+  background-color: @timePickerHeaderColor;
+  color: @timePickerColor;
+}
+
+.mu-clock-number{
+  &.selected {
+    background-color: @timePickerSelectColor;
+    color: @timePickerSelectTextColor;
+  }
+}
+
+.mu-clock-pointer {
+  background-color: @timePickerSelectColor;
+
+}
+
+.mu-clock-pointer-mark {
+  background-color: @timePickerSelectTextColor;
+  border-color:  @timePickerSelectColor;
 }
 
 .mu-text-field{
@@ -674,41 +730,6 @@ a {
   }
 }
 
-.mu-table {
-  background-color: @tableBackgroundColor;
-}
-
-.mu-thead {
-  border-bottom-color: @tableBorderColor;
-}
-
-.mu-th {
-  color: @tableTheadTextColor;
-}
-
-.mu-tr {
-  border-bottom-color: @tableBorderColor;
-  color: @tableTextColor;
-  &.selected {
-    background-color: @tableRowSelectedBackgroundColor;
-  }
-  &.hover {
-    background-color: @tableRowHoverBackgroundColor;
-  }
-  &.stripe {
-    background-color: @tableRowStripeBackgroundColor;
-  }
-
-  .mu-tfoot & {
-    border-top-color: @tableBorderColor;
-  }
-}
-
-.mu-toast {
-  background-color: @toastColor;
-  color: @toastTextColor;
-}
-
 .mu-tooltip{
   color: @tooltipTextColor;
 }
@@ -717,28 +738,7 @@ a {
   background-color: @tooltipRippleColor;
 }
 
-.mu-clock-circle {
-  background-color: @timePickerClockCircleColor;
-}
-
-.mu-time-display {
-  background-color: @timePickerHeaderColor;
-  color: @timePickerColor;
-}
-
-.mu-clock-number{
-  &.selected {
-    background-color: @timePickerSelectColor;
-    color: @timePickerSelectTextColor;
-  }
-}
-
-.mu-clock-pointer {
-  background-color: @timePickerSelectColor;
-
-}
-
-.mu-clock-pointer-mark {
-  background-color: @timePickerSelectTextColor;
-  border-color:  @timePickerSelectColor;
+.mu-toast {
+  background-color: @toastColor;
+  color: @toastTextColor;
 }

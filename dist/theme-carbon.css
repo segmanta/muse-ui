@@ -18,14 +18,6 @@
   background-color: #ff5252;
   color: #ffffff;
 }
-body {
-  background-color: #ffffff;
-  color: #474a4f;
-  font-family: Roboto, Lato, sans-serif;
-}
-a {
-  color: #ff5252;
-}
 .mu-bottom-nav {
   background-color: #ffffff;
 }
@@ -50,8 +42,13 @@ a {
 .mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
   color: #ffffff;
 }
-.mu-bottom-sheet {
+body {
   background-color: #ffffff;
+  color: #474a4f;
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff5252;
 }
 .mu-card {
   background-color: #ffffff;
@@ -104,6 +101,9 @@ a {
 .mu-checkbox.disabled .mu-checkbox-icon-checked {
   color: #d3d6db;
 }
+.mu-bottom-sheet {
+  background-color: #ffffff;
+}
 .mu-chip {
   background-color: #e0e0e0;
   color: rgba(71, 74, 79, 0.87);
@@ -120,19 +120,6 @@ a {
 }
 .mu-circular-progress-determinate-path {
   stroke: #474a4f;
-}
-.mu-dialog {
-  background-color: #ffffff;
-}
-.mu-dialog-footer.scrollable,
-.mu-dialog-header.scrollable {
-  border-bottom-color: #edeff2;
-}
-.mu-dialog-title {
-  color: #474a4f;
-}
-.mu-dialog-body {
-  color: rgba(71, 74, 79, 0.6);
 }
 .mu-calendar {
   color: #474a4f;
@@ -168,6 +155,28 @@ a {
 .mu-year-button.hover .mu-year-button-text {
   color: #ff5252;
 }
+.mu-dialog {
+  background-color: #ffffff;
+}
+.mu-dialog-footer.scrollable,
+.mu-dialog-header.scrollable {
+  border-bottom-color: #edeff2;
+}
+.mu-dialog-title {
+  color: #474a4f;
+}
+.mu-dialog-body {
+  color: rgba(71, 74, 79, 0.6);
+}
+.mu-dropDown-menu-text {
+  color: #474a4f;
+}
+.mu-dropDown-menu-icon {
+  color: #edeff2;
+}
+.mu-dropDown-menu-line {
+  background-color: #edeff2;
+}
 .mu-flat-button {
   color: #474a4f;
   background-color: transparent;
@@ -180,15 +189,6 @@ a {
 }
 .mu-flat-button-secondary {
   color: #ff5252;
-}
-.mu-dropDown-menu-text {
-  color: #474a4f;
-}
-.mu-dropDown-menu-icon {
-  color: #edeff2;
-}
-.mu-dropDown-menu-line {
-  background-color: #edeff2;
 }
 .mu-float-button {
   background-color: #474a4f;
@@ -216,21 +216,6 @@ a {
 .mu-grid-tile-action .mu-icon {
   color: #ffffff;
 }
-.mu-circle-spinner {
-  border-color: #ff5252;
-}
-.mu-circle-secondary {
-  border-color: #ff5252;
-}
-.mu-linear-progress {
-  background-color: #bbbfc4;
-}
-.mu-linear-progress-indeterminate {
-  background-color: #ff5252;
-}
-.mu-linear-progress-determinate {
-  background-color: #ff5252;
-}
 .mu-item-wrapper.hover {
   background-color: rgba(71, 74, 79, 0.1);
 }
@@ -255,6 +240,12 @@ a {
 .mu-item-text {
   color: #7e848c;
 }
+.mu-circle-spinner {
+  border-color: #ff5252;
+}
+.mu-circle-secondary {
+  border-color: #ff5252;
+}
 .mu-menu-item-wrapper {
   color: #474a4f;
 }
@@ -273,6 +264,15 @@ a {
 .mu-menu-item-right-icon {
   color: #757575;
 }
+.mu-linear-progress {
+  background-color: #bbbfc4;
+}
+.mu-linear-progress-indeterminate {
+  background-color: #ff5252;
+}
+.mu-linear-progress-determinate {
+  background-color: #ff5252;
+}
 .mu-pagination-item {
   color: #474a4f;
 }
@@ -286,8 +286,20 @@ a {
 .mu-pagination-item.disabled {
   color: #d3d6db;
 }
-.mu-paper {
+.mu-picker {
   background-color: #ffffff;
+}
+.mu-picker-center-highlight::before,
+.mu-picker-center-highlight::after {
+  background-color: #edeff2;
+}
+.mu-picker-slot.mu-picker-slot-divider {
+  color: #474a4f;
+}
+.mu-picker-item {
+  color: #7e848c;
+}
+.mu-picker-item.selected {
   color: #474a4f;
 }
 .mu-popover {
@@ -295,6 +307,10 @@ a {
 }
 .mu-popup {
   background-color: #ffffff;
+}
+.mu-paper {
+  background-color: #ffffff;
+  color: #474a4f;
 }
 .mu-radio input[type="radio"]:checked + .mu-radio-wrapper .mu-radio-icon-uncheck {
   color: #ff5252;
@@ -336,22 +352,6 @@ a {
 }
 .mu-raised-button-secondary {
   background-color: #ff5252;
-}
-.mu-picker {
-  background-color: #ffffff;
-}
-.mu-picker-center-highlight::before,
-.mu-picker-center-highlight::after {
-  background-color: #edeff2;
-}
-.mu-picker-slot.mu-picker-slot-divider {
-  color: #474a4f;
-}
-.mu-picker-item {
-  color: #7e848c;
-}
-.mu-picker-item.selected {
-  color: #474a4f;
 }
 .mu-refresh-control {
   color: #ff5252;
@@ -453,6 +453,31 @@ a {
 .mu-switch.disabled .mu-switch-thumb {
   background-color: #e0e0e0;
 }
+.mu-table {
+  background-color: #ffffff;
+}
+.mu-thead {
+  border-bottom-color: #edeff2;
+}
+.mu-th {
+  color: #7e848c;
+}
+.mu-tr {
+  border-bottom-color: #edeff2;
+  color: #474a4f;
+}
+.mu-tr.selected {
+  background-color: #f5f5f5;
+}
+.mu-tr.hover {
+  background-color: #eeeeee;
+}
+.mu-tr.stripe {
+  background-color: rgba(200, 202, 205, 0.4);
+}
+.mu-tfoot .mu-tr {
+  border-top-color: #edeff2;
+}
 .mu-tabs {
   background-color: #474a4f;
 }
@@ -464,6 +489,24 @@ a {
 }
 .mu-tab-active {
   color: #ffffff;
+}
+.mu-clock-circle {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.mu-time-display {
+  background-color: #474a4f;
+  color: #ffffff;
+}
+.mu-clock-number.selected {
+  background-color: #ff5252;
+  color: #ffffff;
+}
+.mu-clock-pointer {
+  background-color: #ff5252;
+}
+.mu-clock-pointer-mark {
+  background-color: #ffffff;
+  border-color: #ff5252;
 }
 .mu-text-field {
   color: #7e848c;
@@ -501,56 +544,13 @@ a {
 .mu-text-field.has-label .mu-text-field-label.float {
   color: #d3d6db;
 }
-.mu-table {
-  background-color: #ffffff;
-}
-.mu-thead {
-  border-bottom-color: #edeff2;
-}
-.mu-th {
-  color: #7e848c;
-}
-.mu-tr {
-  border-bottom-color: #edeff2;
-  color: #474a4f;
-}
-.mu-tr.selected {
-  background-color: #f5f5f5;
-}
-.mu-tr.hover {
-  background-color: #eeeeee;
-}
-.mu-tr.stripe {
-  background-color: rgba(200, 202, 205, 0.4);
-}
-.mu-tfoot .mu-tr {
-  border-top-color: #edeff2;
-}
-.mu-toast {
-  background-color: rgba(0, 0, 0, 0.87);
-  color: #ffffff;
-}
 .mu-tooltip {
   color: #ffffff;
 }
 .mu-tooltip-ripple.when-shown {
   background-color: #616161;
 }
-.mu-clock-circle {
-  background-color: rgba(0, 0, 0, 0.07);
-}
-.mu-time-display {
-  background-color: #474a4f;
+.mu-toast {
+  background-color: rgba(0, 0, 0, 0.87);
   color: #ffffff;
-}
-.mu-clock-number.selected {
-  background-color: #ff5252;
-  color: #ffffff;
-}
-.mu-clock-pointer {
-  background-color: #ff5252;
-}
-.mu-clock-pointer-mark {
-  background-color: #ffffff;
-  border-color: #ff5252;
 }

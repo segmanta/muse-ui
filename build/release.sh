@@ -22,7 +22,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   cd docs
   git add -A
   git commit -m "[build] $VERSION"
-  git push
+  git push --set-upstream origin
   cd -
 
   # commit
@@ -31,8 +31,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   npm version $VERSION --message "[release] $VERSION"
 
   # publish
-  git push origin refs/tags/v$VERSION
-  git push
+  git push --set-upstream origin refs/tags/v$VERSION
+  git push --set-upstream
   # npm config set registry http://registry.npmjs.org
   # npm publish
 fi
