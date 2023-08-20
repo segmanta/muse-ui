@@ -5,7 +5,7 @@
       <text-field-label v-if="label" :float="float" :focus="isFocused" :normalClass="labelClass" :focusClass="labelFocusClass">{{label}}</text-field-label>
       <text-field-hint v-if="hintText" :text="hintText" :show="showHint" :class="hintTextClass"></text-field-hint>
       <slot>
-        <input v-if="!multiLine" ref="input" :name="name" :type="type" :value="inputValue"
+        <input v-if="!multiLine" ref="input" :name="name" :aria-label="label || hintText" :type="type" :value="inputValue"
           :disabled="disabled" @change="handleChange" @focus="handleFocus" @input="handleInput" @blur="handleBlur"
           :max="max" :min="min" class="mu-text-field-input" :class="inputClass" :required="required">
         <enhanced-textarea :name="name" v-if="multiLine" ref="textarea" :normalClass="inputClass":value="inputValue" :disabled="disabled" :rows="rows" :rowsMax="rowsMax" @change="handleChange" @input="handleInput" @focus="handleFocus" @blur="handleBlur"></enhanced-textarea>
