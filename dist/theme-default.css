@@ -18,6 +18,14 @@
   background-color: #ff4081;
   color: #ffffff;
 }
+body {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff4081;
+}
 .mu-bottom-nav {
   background-color: #ffffff;
 }
@@ -42,13 +50,8 @@
 .mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
   color: #ffffff;
 }
-body {
+.mu-bottom-sheet {
   background-color: #ffffff;
-  color: rgba(0, 0, 0, 0.87);
-  font-family: Roboto, Lato, sans-serif;
-}
-a {
-  color: #ff4081;
 }
 .mu-card {
   background-color: #ffffff;
@@ -100,9 +103,6 @@ a {
 }
 .mu-checkbox.disabled .mu-checkbox-icon-checked {
   color: rgba(0, 0, 0, 0.38);
-}
-.mu-bottom-sheet {
-  background-color: #ffffff;
 }
 .mu-chip {
   background-color: #e0e0e0;
@@ -216,30 +216,6 @@ a {
 .mu-grid-tile-action .mu-icon {
   color: #ffffff;
 }
-.mu-item-wrapper.hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.mu-item {
-  color: rgba(0, 0, 0, 0.87);
-}
-.mu-item.selected {
-  color: #7e57c2;
-}
-.mu-item-link-icon {
-  color: #757575;
-}
-.mu-item-left {
-  color: #757575;
-}
-.mu-item-right {
-  color: #757575;
-}
-.mu-item-after {
-  color: rgba(0, 0, 0, 0.54);
-}
-.mu-item-text {
-  color: rgba(0, 0, 0, 0.54);
-}
 .mu-circle-spinner {
   border-color: #7e57c2;
 }
@@ -273,6 +249,30 @@ a {
 .mu-linear-progress-determinate {
   background-color: #7e57c2;
 }
+.mu-item-wrapper.hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.mu-item {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-item.selected {
+  color: #7e57c2;
+}
+.mu-item-link-icon {
+  color: #757575;
+}
+.mu-item-left {
+  color: #757575;
+}
+.mu-item-right {
+  color: #757575;
+}
+.mu-item-after {
+  color: rgba(0, 0, 0, 0.54);
+}
+.mu-item-text {
+  color: rgba(0, 0, 0, 0.54);
+}
 .mu-pagination-item {
   color: rgba(0, 0, 0, 0.87);
 }
@@ -285,6 +285,13 @@ a {
 }
 .mu-pagination-item.disabled {
   color: rgba(0, 0, 0, 0.38);
+}
+.mu-paper {
+  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-popover {
+  background-color: #ffffff;
 }
 .mu-picker {
   background-color: #ffffff;
@@ -300,16 +307,6 @@ a {
   color: rgba(0, 0, 0, 0.54);
 }
 .mu-picker-item.selected {
-  color: rgba(0, 0, 0, 0.87);
-}
-.mu-popover {
-  background-color: #ffffff;
-}
-.mu-popup {
-  background-color: #ffffff;
-}
-.mu-paper {
-  background-color: #ffffff;
   color: rgba(0, 0, 0, 0.87);
 }
 .mu-radio input[type="radio"]:checked + .mu-radio-wrapper .mu-radio-icon-uncheck {
@@ -335,6 +332,9 @@ a {
 }
 .mu-radio.disabled .mu-radio-icon-checked {
   color: rgba(0, 0, 0, 0.38);
+}
+.mu-popup {
+  background-color: #ffffff;
 }
 .mu-raised-button {
   background-color: #ffffff;
@@ -478,36 +478,6 @@ a {
 .mu-tfoot .mu-tr {
   border-top-color: rgba(0, 0, 0, 0.12);
 }
-.mu-tabs {
-  background-color: #7e57c2;
-}
-.mu-tab-link-highlight {
-  background-color: #ff4081;
-}
-.mu-tab-link {
-  color: rgba(255, 255, 255, 0.7);
-}
-.mu-tab-active {
-  color: #ffffff;
-}
-.mu-clock-circle {
-  background-color: rgba(0, 0, 0, 0.07);
-}
-.mu-time-display {
-  background-color: #7e57c2;
-  color: #ffffff;
-}
-.mu-clock-number.selected {
-  background-color: #7e57c2;
-  color: #ffffff;
-}
-.mu-clock-pointer {
-  background-color: #7e57c2;
-}
-.mu-clock-pointer-mark {
-  background-color: #ffffff;
-  border-color: #7e57c2;
-}
 .mu-text-field {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -544,13 +514,43 @@ a {
 .mu-text-field.has-label .mu-text-field-label.float {
   color: rgba(0, 0, 0, 0.38);
 }
+.mu-tabs {
+  background-color: #7e57c2;
+}
+.mu-tab-link-highlight {
+  background-color: #ff4081;
+}
+.mu-tab-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mu-tab-active {
+  color: #ffffff;
+}
+.mu-clock-circle {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.mu-time-display {
+  background-color: #7e57c2;
+  color: #ffffff;
+}
+.mu-clock-number.selected {
+  background-color: #7e57c2;
+  color: #ffffff;
+}
+.mu-clock-pointer {
+  background-color: #7e57c2;
+}
+.mu-clock-pointer-mark {
+  background-color: #ffffff;
+  border-color: #7e57c2;
+}
+.mu-toast {
+  background-color: rgba(0, 0, 0, 0.87);
+  color: #ffffff;
+}
 .mu-tooltip {
   color: #ffffff;
 }
 .mu-tooltip-ripple.when-shown {
   background-color: #616161;
-}
-.mu-toast {
-  background-color: rgba(0, 0, 0, 0.87);
-  color: #ffffff;
 }

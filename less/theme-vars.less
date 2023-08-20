@@ -39,18 +39,13 @@
 @checkboxDisabledColor: @disabledColor;
 @checkboxCheckedColor: @primaryColor;
 
-@circularProgressColor: @primaryColor;
-
 @chipColor: darken(@alternateTextColor, 12%);
 @chipHoverColor: rgb(206, 206, 206);
 @chipTextColor: fade(@textColor, 87%);
 @chipDeleteColor: fade(@textColor, 26%);
 @chipHoverDeleteColor: fade(fade(@textColor, 26%), 40%);
 
-@dialogBorderColor: @borderColor;
-@dialogTitleColor: @textColor;
-@dialogBodyColor: fade(@textColor, 60%);;
-@dialogColor: @dialogBackgroundColor;
+@circularProgressColor: @primaryColor;
 
 @datePickerColor: @primaryColor;
 @datePickerTextColor: @alternateTextColor;
@@ -60,15 +55,20 @@
 @datePickerCalendarYearBackgroundColor: @dialogBackgroundColor;
 @datePickerHeaderColor: @primaryColor;
 
-@dropDownMenuTextColor: @textColor;
-@dropDownMenuIconColor: @borderColor;
-@dropDownMenuLineColor: @borderColor;
+@dialogBorderColor: @borderColor;
+@dialogTitleColor: @textColor;
+@dialogBodyColor: fade(@textColor, 60%);;
+@dialogColor: @dialogBackgroundColor;
 
 // flatButton
 @flatButtonColor: transparent;
 @flatButtonTextColor: @textColor;
 @flatButtonPrimaryTextColor: @primaryColor;
 @flatButtonSecondaryTextColor: @accentColor;
+
+@dropDownMenuTextColor: @textColor;
+@dropDownMenuIconColor: @borderColor;
+@dropDownMenuLineColor: @borderColor;
 
 // floatButton
 @floatButtonColor: @primaryColor;
@@ -109,15 +109,17 @@
 @paginationActiveColor: @white;
 @paginationDisabledColor: @disabledColor;
 
-@paperColor: @textColor;
-@paperBackgroundColor: @dialogBackgroundColor;
-
 @pickerColor: @dialogBackgroundColor;
 @pickerTextColor: @secondaryTextColor;
 @pickerSelectedTextColor: @textColor;
 @pickerBorderColor: @borderColor;
 
+@paperColor: @textColor;
+@paperBackgroundColor: @dialogBackgroundColor;
+
 @popoverColor: @dialogBackgroundColor;
+
+@popupColor: @dialogBackgroundColor;
 
 @radioColor: @textColor;
 @radioTextColor: @textColor;
@@ -131,8 +133,6 @@
 @raisedButtonSecondaryColor: @accentColor;
 @raisedButtonDisabledColor: darken(@alternateTextColor, 10%);
 @raisedButtonDisabledTextColor: fade(@textColor, 30%);
-
-@popupColor: @dialogBackgroundColor;
 
 @refreshControlColor: @primaryColor;
 
@@ -190,6 +190,9 @@
 @textFieldErrorLineColor: @red;
 @textFieldDisabledLineColor: @disabledColor;
 
+@toastTextColor: @alternateTextColor;
+@toastColor: @textColor;
+
 @timePickerColor: @alternateTextColor;
 @timePickerClockColor: @textColor;
 @timePickerClockCircleColor: fade(@darkBlack, 7%);
@@ -199,6 +202,3 @@
 
 @tooltipTextColor: @alternateTextColor;
 @tooltipRippleColor: @grey700;
-
-@toastTextColor: @alternateTextColor;
-@toastColor: @textColor;

@@ -23,6 +23,16 @@
   color: @badgeSecondaryTextColor;
 }
 
+body {
+  background-color: @baseBackgroundColor;
+  color: @baseTextColor;
+  font-family: @baseFontFamily;
+}
+
+a {
+  color: @baseLinkColor;
+}
+
 .mu-bottom-nav {
   background-color: @bottomNavBackgroundColor;
 }
@@ -53,14 +63,8 @@
   }
 }
 
-body {
-  background-color: @baseBackgroundColor;
-  color: @baseTextColor;
-  font-family: @baseFontFamily;
-}
-
-a {
-  color: @baseLinkColor;
+.mu-bottom-sheet {
+  background-color: @bottomSheetColor;
 }
 
 .mu-card {
@@ -135,10 +139,6 @@ a {
   .mu-checkbox.disabled & {
     color: @checkboxDisabledColor;
   }
-}
-
-.mu-bottom-sheet {
-  background-color: @bottomSheetColor;
 }
 
 .mu-chip {
@@ -287,40 +287,6 @@ a {
 }
 
 
-// list
-.mu-item-wrapper{
-  &.hover {
-    background-color: @listHoverColor;
-  }
-}
-.mu-item {
-  color: @listTextColor;
-  &.selected {
-    color: @listSelectedColor;
-  }
-}
-
-.mu-item-link-icon{
-  color: @listRightIconColor;
-}
-
-.mu-item-left{
-  color: @listLeftIconColor;
-}
-
-.mu-item-right{
-  color: @listRightIconColor;
-}
-
-.mu-item-after{
-  color: @listSecondaryTextColor;
-}
-
-.mu-item-text{
-  color: @listSecondaryTextColor;
-}
-
-
 // circle
 .mu-circle-spinner{
   border-color: @circleColor;
@@ -363,6 +329,40 @@ a {
   background-color: @linearProgressFillColor;
 }
 
+
+// list
+.mu-item-wrapper{
+  &.hover {
+    background-color: @listHoverColor;
+  }
+}
+.mu-item {
+  color: @listTextColor;
+  &.selected {
+    color: @listSelectedColor;
+  }
+}
+
+.mu-item-link-icon{
+  color: @listRightIconColor;
+}
+
+.mu-item-left{
+  color: @listLeftIconColor;
+}
+
+.mu-item-right{
+  color: @listRightIconColor;
+}
+
+.mu-item-after{
+  color: @listSecondaryTextColor;
+}
+
+.mu-item-text{
+  color: @listSecondaryTextColor;
+}
+
 .mu-pagination-item{
   color: @paginationTextColor;
   &.hover {
@@ -375,6 +375,15 @@ a {
   &.disabled {
     color: @paginationDisabledColor;
   }
+}
+
+.mu-paper {
+  background-color: @paperBackgroundColor;
+  color: @paperColor;
+}
+
+.mu-popover {
+  background-color: @popoverColor;
 }
 
 .mu-picker{
@@ -398,19 +407,6 @@ a {
   &.selected {
     color: @pickerSelectedTextColor;
   }
-}
-
-.mu-popover {
-  background-color: @popoverColor;
-}
-
-.mu-popup {
-  background-color: @popupColor;
-}
-
-.mu-paper {
-  background-color: @paperBackgroundColor;
-  color: @paperColor;
 }
 
 .mu-radio {
@@ -448,6 +444,10 @@ a {
   .mu-radio.disabled & {
      color: @radioDisabledColor;
    }
+}
+
+.mu-popup {
+  background-color: @popupColor;
 }
 
 
@@ -643,45 +643,6 @@ a {
   }
 }
 
-.mu-tabs{
-  background-color: @tabsBackgroundColor;
-}
-.mu-tab-link-highlight {
-  background-color: @tabsLineColor;
-}
-.mu-tab-link{
-  color: @tabsTextColor;
-}
-.mu-tab-active {
-  color: @tabsSelectedTextColor;
-}
-
-.mu-clock-circle {
-  background-color: @timePickerClockCircleColor;
-}
-
-.mu-time-display {
-  background-color: @timePickerHeaderColor;
-  color: @timePickerColor;
-}
-
-.mu-clock-number{
-  &.selected {
-    background-color: @timePickerSelectColor;
-    color: @timePickerSelectTextColor;
-  }
-}
-
-.mu-clock-pointer {
-  background-color: @timePickerSelectColor;
-
-}
-
-.mu-clock-pointer-mark {
-  background-color: @timePickerSelectTextColor;
-  border-color:  @timePickerSelectColor;
-}
-
 .mu-text-field{
   color: @textFieldTextColor;
   &.focus-state {
@@ -730,15 +691,54 @@ a {
   }
 }
 
+.mu-tabs{
+  background-color: @tabsBackgroundColor;
+}
+.mu-tab-link-highlight {
+  background-color: @tabsLineColor;
+}
+.mu-tab-link{
+  color: @tabsTextColor;
+}
+.mu-tab-active {
+  color: @tabsSelectedTextColor;
+}
+
+.mu-clock-circle {
+  background-color: @timePickerClockCircleColor;
+}
+
+.mu-time-display {
+  background-color: @timePickerHeaderColor;
+  color: @timePickerColor;
+}
+
+.mu-clock-number{
+  &.selected {
+    background-color: @timePickerSelectColor;
+    color: @timePickerSelectTextColor;
+  }
+}
+
+.mu-clock-pointer {
+  background-color: @timePickerSelectColor;
+
+}
+
+.mu-clock-pointer-mark {
+  background-color: @timePickerSelectTextColor;
+  border-color:  @timePickerSelectColor;
+}
+
+.mu-toast {
+  background-color: @toastColor;
+  color: @toastTextColor;
+}
+
 .mu-tooltip{
   color: @tooltipTextColor;
 }
 
 .mu-tooltip-ripple.when-shown {
   background-color: @tooltipRippleColor;
-}
-
-.mu-toast {
-  background-color: @toastColor;
-  color: @toastTextColor;
 }

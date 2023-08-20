@@ -18,6 +18,14 @@
   background-color: #ff4081;
   color: #303030;
 }
+body {
+  background-color: #303030;
+  color: #ffffff;
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff4081;
+}
 .mu-bottom-nav {
   background-color: #424242;
 }
@@ -42,13 +50,8 @@
 .mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
   color: #303030;
 }
-body {
-  background-color: #303030;
-  color: #ffffff;
-  font-family: Roboto, Lato, sans-serif;
-}
-a {
-  color: #ff4081;
+.mu-bottom-sheet {
+  background-color: #424242;
 }
 .mu-card {
   background-color: #303030;
@@ -100,9 +103,6 @@ a {
 }
 .mu-checkbox.disabled .mu-checkbox-icon-checked {
   color: rgba(255, 255, 255, 0.3);
-}
-.mu-bottom-sheet {
-  background-color: #424242;
 }
 .mu-chip {
   background-color: #4f4f4f;
@@ -216,30 +216,6 @@ a {
 .mu-grid-tile-action .mu-icon {
   color: #ffffff;
 }
-.mu-item-wrapper.hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-.mu-item {
-  color: #ffffff;
-}
-.mu-item.selected {
-  color: #1976d2;
-}
-.mu-item-link-icon {
-  color: #757575;
-}
-.mu-item-left {
-  color: #757575;
-}
-.mu-item-right {
-  color: #757575;
-}
-.mu-item-after {
-  color: rgba(255, 255, 255, 0.7);
-}
-.mu-item-text {
-  color: rgba(255, 255, 255, 0.7);
-}
 .mu-circle-spinner {
   border-color: #1976d2;
 }
@@ -273,6 +249,30 @@ a {
 .mu-linear-progress-determinate {
   background-color: #1976d2;
 }
+.mu-item-wrapper.hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.mu-item {
+  color: #ffffff;
+}
+.mu-item.selected {
+  color: #1976d2;
+}
+.mu-item-link-icon {
+  color: #757575;
+}
+.mu-item-left {
+  color: #757575;
+}
+.mu-item-right {
+  color: #757575;
+}
+.mu-item-after {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mu-item-text {
+  color: rgba(255, 255, 255, 0.7);
+}
 .mu-pagination-item {
   color: #ffffff;
 }
@@ -285,6 +285,13 @@ a {
 }
 .mu-pagination-item.disabled {
   color: rgba(255, 255, 255, 0.3);
+}
+.mu-paper {
+  background-color: #424242;
+  color: #ffffff;
+}
+.mu-popover {
+  background-color: #424242;
 }
 .mu-picker {
   background-color: #424242;
@@ -300,16 +307,6 @@ a {
   color: rgba(255, 255, 255, 0.7);
 }
 .mu-picker-item.selected {
-  color: #ffffff;
-}
-.mu-popover {
-  background-color: #424242;
-}
-.mu-popup {
-  background-color: #424242;
-}
-.mu-paper {
-  background-color: #424242;
   color: #ffffff;
 }
 .mu-radio input[type="radio"]:checked + .mu-radio-wrapper .mu-radio-icon-uncheck {
@@ -335,6 +332,9 @@ a {
 }
 .mu-radio.disabled .mu-radio-icon-checked {
   color: rgba(255, 255, 255, 0.3);
+}
+.mu-popup {
+  background-color: #424242;
 }
 .mu-raised-button {
   background-color: #303030;
@@ -478,36 +478,6 @@ a {
 .mu-tfoot .mu-tr {
   border-top-color: rgba(255, 255, 255, 0.3);
 }
-.mu-tabs {
-  background-color: #1976d2;
-}
-.mu-tab-link-highlight {
-  background-color: #ff4081;
-}
-.mu-tab-link {
-  color: rgba(48, 48, 48, 0.7);
-}
-.mu-tab-active {
-  color: #303030;
-}
-.mu-clock-circle {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-.mu-time-display {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-}
-.mu-clock-number.selected {
-  background-color: #1976d2;
-  color: #303030;
-}
-.mu-clock-pointer {
-  background-color: #1976d2;
-}
-.mu-clock-pointer-mark {
-  background-color: #303030;
-  border-color: #1976d2;
-}
 .mu-text-field {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -544,13 +514,43 @@ a {
 .mu-text-field.has-label .mu-text-field-label.float {
   color: rgba(255, 255, 255, 0.3);
 }
+.mu-tabs {
+  background-color: #1976d2;
+}
+.mu-tab-link-highlight {
+  background-color: #ff4081;
+}
+.mu-tab-link {
+  color: rgba(48, 48, 48, 0.7);
+}
+.mu-tab-active {
+  color: #303030;
+}
+.mu-clock-circle {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.mu-time-display {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+.mu-clock-number.selected {
+  background-color: #1976d2;
+  color: #303030;
+}
+.mu-clock-pointer {
+  background-color: #1976d2;
+}
+.mu-clock-pointer-mark {
+  background-color: #303030;
+  border-color: #1976d2;
+}
+.mu-toast {
+  background-color: #ffffff;
+  color: #303030;
+}
 .mu-tooltip {
   color: #303030;
 }
 .mu-tooltip-ripple.when-shown {
   background-color: #616161;
-}
-.mu-toast {
-  background-color: #ffffff;
-  color: #303030;
 }
