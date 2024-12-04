@@ -296,27 +296,6 @@ a {
   border-color: @circleSecondaryColor;
 }
 
-.mu-menu-item-wrapper{
-  color: @menuTextColor;
-  &.active {
-    color: @menuSelectColor;
-  }
-  &.hover {
-    background-color: @menuHoverColor;
-  }
-  &.disabled {
-    color: @menuDisabledColor;
-  }
-}
-
-.mu-menu-item-left-icon{
-  color: @menuLeftIconColor;
-}
-
-.mu-menu-item-right-icon {
-  color: @menuRightIconColor;
-}
-
 .mu-linear-progress{
   background-color: @linearProgressColor;
 }
@@ -363,6 +342,27 @@ a {
   color: @listSecondaryTextColor;
 }
 
+.mu-menu-item-wrapper{
+  color: @menuTextColor;
+  &.active {
+    color: @menuSelectColor;
+  }
+  &.hover {
+    background-color: @menuHoverColor;
+  }
+  &.disabled {
+    color: @menuDisabledColor;
+  }
+}
+
+.mu-menu-item-left-icon{
+  color: @menuLeftIconColor;
+}
+
+.mu-menu-item-right-icon {
+  color: @menuRightIconColor;
+}
+
 .mu-pagination-item{
   color: @paginationTextColor;
   &.hover {
@@ -380,10 +380,6 @@ a {
 .mu-paper {
   background-color: @paperBackgroundColor;
   color: @paperColor;
-}
-
-.mu-popover {
-  background-color: @popoverColor;
 }
 
 .mu-picker{
@@ -407,6 +403,14 @@ a {
   &.selected {
     color: @pickerSelectedTextColor;
   }
+}
+
+.mu-popover {
+  background-color: @popoverColor;
+}
+
+.mu-popup {
+  background-color: @popupColor;
 }
 
 .mu-radio {
@@ -444,10 +448,6 @@ a {
   .mu-radio.disabled & {
      color: @radioDisabledColor;
    }
-}
-
-.mu-popup {
-  background-color: @popupColor;
 }
 
 
@@ -643,6 +643,19 @@ a {
   }
 }
 
+.mu-tabs{
+  background-color: @tabsBackgroundColor;
+}
+.mu-tab-link-highlight {
+  background-color: @tabsLineColor;
+}
+.mu-tab-link{
+  color: @tabsTextColor;
+}
+.mu-tab-active {
+  color: @tabsSelectedTextColor;
+}
+
 .mu-text-field{
   color: @textFieldTextColor;
   &.focus-state {
@@ -689,19 +702,6 @@ a {
   .mu-text-field.has-label &.float {
     color: @textFieldHintColor
   }
-}
-
-.mu-tabs{
-  background-color: @tabsBackgroundColor;
-}
-.mu-tab-link-highlight {
-  background-color: @tabsLineColor;
-}
-.mu-tab-link{
-  color: @tabsTextColor;
-}
-.mu-tab-active {
-  color: @tabsSelectedTextColor;
 }
 
 .mu-clock-circle {

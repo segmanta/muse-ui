@@ -222,24 +222,6 @@ a {
 .mu-circle-secondary {
   border-color: #ff4081;
 }
-.mu-menu-item-wrapper {
-  color: rgba(0, 0, 0, 0.87);
-}
-.mu-menu-item-wrapper.active {
-  color: #ff4081;
-}
-.mu-menu-item-wrapper.hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.mu-menu-item-wrapper.disabled {
-  color: rgba(0, 0, 0, 0.38);
-}
-.mu-menu-item-left-icon {
-  color: #757575;
-}
-.mu-menu-item-right-icon {
-  color: #757575;
-}
 .mu-linear-progress {
   background-color: #bdbdbd;
 }
@@ -273,6 +255,24 @@ a {
 .mu-item-text {
   color: rgba(0, 0, 0, 0.54);
 }
+.mu-menu-item-wrapper {
+  color: rgba(0, 0, 0, 0.87);
+}
+.mu-menu-item-wrapper.active {
+  color: #ff4081;
+}
+.mu-menu-item-wrapper.hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.mu-menu-item-wrapper.disabled {
+  color: rgba(0, 0, 0, 0.38);
+}
+.mu-menu-item-left-icon {
+  color: #757575;
+}
+.mu-menu-item-right-icon {
+  color: #757575;
+}
 .mu-pagination-item {
   color: rgba(0, 0, 0, 0.87);
 }
@@ -290,9 +290,6 @@ a {
   background-color: #ffffff;
   color: rgba(0, 0, 0, 0.87);
 }
-.mu-popover {
-  background-color: #ffffff;
-}
 .mu-picker {
   background-color: #ffffff;
 }
@@ -308,6 +305,12 @@ a {
 }
 .mu-picker-item.selected {
   color: rgba(0, 0, 0, 0.87);
+}
+.mu-popover {
+  background-color: #ffffff;
+}
+.mu-popup {
+  background-color: #ffffff;
 }
 .mu-radio input[type="radio"]:checked + .mu-radio-wrapper .mu-radio-icon-uncheck {
   color: #7e57c2;
@@ -332,9 +335,6 @@ a {
 }
 .mu-radio.disabled .mu-radio-icon-checked {
   color: rgba(0, 0, 0, 0.38);
-}
-.mu-popup {
-  background-color: #ffffff;
 }
 .mu-raised-button {
   background-color: #ffffff;
@@ -478,6 +478,18 @@ a {
 .mu-tfoot .mu-tr {
   border-top-color: rgba(0, 0, 0, 0.12);
 }
+.mu-tabs {
+  background-color: #7e57c2;
+}
+.mu-tab-link-highlight {
+  background-color: #ff4081;
+}
+.mu-tab-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mu-tab-active {
+  color: #ffffff;
+}
 .mu-text-field {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -513,18 +525,6 @@ a {
 }
 .mu-text-field.has-label .mu-text-field-label.float {
   color: rgba(0, 0, 0, 0.38);
-}
-.mu-tabs {
-  background-color: #7e57c2;
-}
-.mu-tab-link-highlight {
-  background-color: #ff4081;
-}
-.mu-tab-link {
-  color: rgba(255, 255, 255, 0.7);
-}
-.mu-tab-active {
-  color: #ffffff;
 }
 .mu-clock-circle {
   background-color: rgba(0, 0, 0, 0.07);
