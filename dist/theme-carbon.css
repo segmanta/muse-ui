@@ -18,14 +18,6 @@
   background-color: #ff5252;
   color: #ffffff;
 }
-body {
-  background-color: #ffffff;
-  color: #474a4f;
-  font-family: Roboto, Lato, sans-serif;
-}
-a {
-  color: #ff5252;
-}
 .mu-bottom-nav {
   background-color: #ffffff;
 }
@@ -49,6 +41,14 @@ a {
 }
 .mu-bottom-nav-shift .mu-bottom-item-active .mu-bottom-item-icon {
   color: #ffffff;
+}
+body {
+  background-color: #ffffff;
+  color: #474a4f;
+  font-family: Roboto, Lato, sans-serif;
+}
+a {
+  color: #ff5252;
 }
 .mu-bottom-sheet {
   background-color: #ffffff;
